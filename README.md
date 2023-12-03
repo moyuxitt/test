@@ -27,3 +27,12 @@ git checkout -b dev(本地分支名称) origin/dev(远程分支名称)
 7.把某个分支上的内容都拉取到本地
 git pull origin dev(远程分支名称)
 
+# 前端在哪儿？
+在vue分支 查看vue分支中readme文件运行前端
+
+# swgger
+
+http://localhost:9091/swagger-ui/index.html#/
+
+项目启动成功后访问以上地址即可查看api
+
