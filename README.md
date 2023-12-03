@@ -36,3 +36,7 @@ http://localhost:9091/swagger-ui/index.html#/
 
 项目启动成功后访问以上地址即可查看api
 
+# linux测试题也在当前分支下
+linux_test_1.sh 
+linux_test_2.sh 
+
