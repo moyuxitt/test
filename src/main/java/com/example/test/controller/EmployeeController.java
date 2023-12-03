@@ -8,6 +8,11 @@ import com.example.test.common.JsonResult;
 import com.example.test.bean.Employee;
 import com.example.test.exception.ServiceException;
 import com.example.test.service.EmployeeService;
+import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,15 +31,17 @@ import java.util.List;
  * @author twy
  * @since 2023-11-30
  */
+
+@Api(value = "员工服务", tags = "员工模块")
 @Slf4j
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
-    
-    
-    
+
+
+    @ApiOperation(value = "创建员工信息")
     @PostMapping("/saveOrUpdate")
     public JsonResult saveOrUpdate(@RequestBody Employee employee){
         try{
@@ -46,6 +53,7 @@ public class EmployeeController {
         }
     }
 
+    @ApiOperation(value = "分页查询")
     @PostMapping("/findPage")
     public JsonResult findPage(@RequestBody JSONObject json){
         try{
@@ -56,6 +64,7 @@ public class EmployeeController {
         }
     }
 
+    @ApiOperation(value = "根据id查询")
     @GetMapping("/getById/{id}")
     public JsonResult getById(@PathVariable String id){
         try{
@@ -66,6 +75,7 @@ public class EmployeeController {
         }
     }
 
+    @ApiOperation(value = "根据id删除")
     @DeleteMapping("/removeById/{id}")
     public JsonResult removeById(@PathVariable String id){
         try{
@@ -76,6 +86,8 @@ public class EmployeeController {
         }
     }
 
+
+    @ApiOperation(value = "根据ids批量删除")
     @PostMapping("/removeByIds")
     public JsonResult removeByIds(@RequestBody List<String> ids){
         try{
@@ -88,7 +100,7 @@ public class EmployeeController {
 
 
 
-
+    @ApiOperation(value = "员工信息列表导出接口")
     @GetMapping("/export")
     public void export(HttpServletResponse response) throws IOException {
         //查询所有用户

@@ -2,6 +2,9 @@ server:
   port: 9091
 
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     #    url: jdbc:mysql://172.16.0.160:3306/feixian?serverTimezone=GMT%2b8

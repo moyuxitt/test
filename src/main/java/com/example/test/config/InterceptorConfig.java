@@ -14,6 +14,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(jwtInterceptor())
                 .addPathPatterns("/**")
+                .excludePathPatterns("/swagger-resources/**","/swagger-ui/**", "/v3/**", "/error")
                 .excludePathPatterns("/employee/export")
                 .excludePathPatterns("/user/Login")
                 .excludePathPatterns("/user/saveOrUpdate")

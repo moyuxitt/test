@@ -5,6 +5,8 @@ import com.example.test.bean.User;
 import com.example.test.common.JsonResult;
 import com.example.test.exception.ServiceException;
 import com.example.test.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Api(value = "用户服务", tags = "用户模块")
 @Slf4j
 @RestController
 @RequestMapping("/user")
@@ -22,7 +25,7 @@ public class UserController {
 
 
 
-
+    @ApiOperation(value = "创建用户接口")
     @PostMapping(value = "/saveOrUpdate")
     public JsonResult saveOrUpdate(@RequestBody User user){
         try{
@@ -34,7 +37,7 @@ public class UserController {
         }
     }
 
-
+    @ApiOperation(value = "登陆接口")
     @PostMapping("/Login")
     public JsonResult Login(@RequestBody JSONObject json){
         try{
