@@ -307,8 +307,6 @@ export default {
       this.request.post("/employee/findPage", data).then((res) => {
         this.tableData = res.data.records;
         this.total = res.data.total;
-        console.log(this.total);
-        console.log(typeof res.data.records[0].createTime);
       });
     },
     handleSelectionChange(val) {
